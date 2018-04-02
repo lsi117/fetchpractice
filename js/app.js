@@ -7,12 +7,12 @@ const form = document.querySelector('form');
 // ------------------------------------------
 function fetchData (url){
   return fetch(url)
-          .then(response => response.json())
-}
+    .then(response => response.json()
+    .catch(error => console.log('Looks like there was a problem!', error))
+    }
 
 fetchData('https://dog.ceo/api/breeds/list')
   .then(data => generateOptions(data.message))
-  .catch(error => console.log('Looks like there was a problem!', error))
 
 fetchData('https://dog.ceo/api/breeds/image/random')
   .then(data => generateImage(data.message))
