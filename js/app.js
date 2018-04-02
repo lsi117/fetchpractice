@@ -12,6 +12,7 @@ function fetchData (url){
     .catch(error => console.log('Looks like there was a problem!', error))
     }
 
+//will fail if one fails..
 Promise.all([
   fetchData('https://dog.ceo/api/breeds/list'),
   fetchData('https://dog.ceo/api/breeds/image/random')
