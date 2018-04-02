@@ -85,4 +85,9 @@ card.addEventListener('click', fetchBreedImage);
 // ------------------------------------------
 //  POST DATA
 // ------------------------------------------
+function postData (e){
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const comment = document.getElementById('comment').value;
+}
 
