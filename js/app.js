@@ -80,6 +80,7 @@ function fetchBreedImage () {
 // ------------------------------------------
 select.addEventListener('change', fetchBreedImage);
 card.addEventListener('click', fetchBreedImage);
+form.addEventListener('submit', postData);
 
 
 // ------------------------------------------
@@ -89,5 +90,16 @@ function postData (e){
   e.preventDefault();
   const name = document.getElementById('name').value;
   const comment = document.getElementById('comment').value;
+
+  fetchData('https://jsonplaceholder.typicode.com/comments',{
+    methods: 'POST',
+    headers: {
+      'Content-Type': 'application/json/'
+    },
+    body: JSON.stringify({
+      name,
+      comment
+    })
+  });
 }
 
