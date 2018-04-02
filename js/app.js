@@ -7,7 +7,7 @@ const form = document.querySelector('form');
 // ------------------------------------------
 function fetchData (url){
   return fetch(url)
-    .then(response => console.log(response))
+    .then(checkStatus)
     .then(response => response.json())
     .catch(error => console.log('Looks like there was a problem!', error))
     }
