@@ -12,11 +12,24 @@ function fetchData (url){
     .catch(error => console.log('Looks like there was a problem!', error))
     }
 
-fetchData('https://dog.ceo/api/breeds/list')
-  .then(data => generateOptions(data.message))
+Promise.all([
+  fetchData('https://dog.ceo/api/breeds/list'),
+  fetchData('https://dog.ceo/api/breeds/image/random')
 
-fetchData('https://dog.ceo/api/breeds/image/random')
-  .then(data => generateImage(data.message))
+  ])
+  .then(data => {
+    let breedList = data[0].message;
+    let randomImg = data[1].message;
+    generateOptions(breedList);
+    generateImage(randomImg);
+  })
+
+//these fetchData were replaced with Promise.all
+// fetchData('https://dog.ceo/api/breeds/list')
+//   .then(data => generateOptions(data.message))
+
+// fetchData('https://dog.ceo/api/breeds/image/random')
+//   .then(data => generateImage(data.message))
 
 
 // ------------------------------------------
