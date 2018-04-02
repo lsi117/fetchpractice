@@ -25,6 +25,7 @@ Promise.all([
   })
 
 //these fetchData were replaced with Promise.all
+
 // fetchData('https://dog.ceo/api/breeds/list')
 //   .then(data => generateOptions(data.message))
 
