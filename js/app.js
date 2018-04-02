@@ -12,6 +12,7 @@ function fetchData (url){
 
 fetchData('https://dog.ceo/api/breeds/list')
   .then(data => generateOptions(data.message))
+  .catch(error => console.log('Looks like there was a problem!', error))
 
 fetchData('https://dog.ceo/api/breeds/image/random')
   .then(data => generateImage(data.message))
