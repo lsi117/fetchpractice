@@ -91,15 +91,19 @@ function postData (e){
   const name = document.getElementById('name').value;
   const comment = document.getElementById('comment').value;
 
-  fetchData('https://jsonplaceholder.typicode.com/comments',{
-    methods: 'POST',
-    headers: {
-      'Content-Type': 'application/json/'
-    },
-    body: JSON.stringify({
-      name,
-      comment
-    })
-  });
+const config = {
+  method: 'POST',
+  mode: 'no-cors', //trying to fix CORS ISSUE
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({name, comment})
+}
+
+
+  fetch('https://jsonplaceholder.typicode.com/comments')
+  .then(checkStatus)
+  .then(response => response.json())
+  .then(data => console.log(data))
 }
 
